@@ -1,6 +1,10 @@
 print("Welcome to ToDo App")
 
-# Taking User Input:
 user_prompt = "Enter a todo: "
-text = input(user_prompt)
-print(text)
+todos = []
+
+# Taking User Input:
+while True:
+    text = input(user_prompt)
+    todos.append(text)
+    print(todos)
