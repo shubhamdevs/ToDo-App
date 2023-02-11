@@ -5,6 +5,7 @@ todo_list = []
 # Taking User Input:
 while True:
     user_input = input("Type add, show or exit: ")
+    user_input = user_input.strip()
 
     # matching user input with the assigned cases:
     match user_input:
@@ -14,7 +15,8 @@ while True:
             todo_list.append(todo)
 
         case "show":
-            print(todo_list)
+            for item in todo_list:
+                print(item)
 
         case "exit":
             break
