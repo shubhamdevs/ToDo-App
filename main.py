@@ -4,7 +4,7 @@ todo_list = []
 
 # Taking User Input:
 while True:
-    user_input = input("Type add, show or exit: ")
+    user_input = input("Type add, edit, show or exit: ")
     user_input = user_input.strip()
 
     # matching user input with the assigned cases:
@@ -13,6 +13,11 @@ while True:
         case "add":
             todo = input("Enter a todo: ")
             todo_list.append(todo)
+
+        case "edit":
+            num = int(input("Number of the todo to edit: "))
+            new_todo = input("Enter the new todo: ")
+            todo_list[num - 1] = new_todo
 
         case "show":
             for item in todo_list:
