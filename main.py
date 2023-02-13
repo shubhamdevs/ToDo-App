@@ -20,8 +20,8 @@ while True:
             todo_list[num - 1] = new_todo
 
         case "show":
-            for item in todo_list:
-                print(item)
+            for index, item in enumerate(todo_list):
+                print(f"{index + 1}.{item}")
 
         case "exit":
             break
