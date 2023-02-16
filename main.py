@@ -24,7 +24,8 @@ while True:
 
             num = int(input("Number of the todo to edit: "))
             new_todo = input("Enter the new todo: ")
-            todo_list[num - 1] = new_todo
+
+            todo_list[num - 1] = new_todo + "\n"
 
             with open("todos.txt", "w") as file:
                 file.writelines(todo_list)
@@ -34,10 +35,14 @@ while True:
                 todo_list = file.readlines()
 
             num = int(input("Enter the number of completed todo: "))
-            todo_list.pop(num - 1)
+            index = num - 1
+            todoToDelete = todo_list[index].strip("\n")
+            todo_list.pop(index)
 
             with open("todos.txt", "w") as file:
                 file.writelines(todo_list)
+
+            print(f"Task {todoToDelete} is removed from the list")
 
         case "show":
             with open("todos.txt", "r") as file:
