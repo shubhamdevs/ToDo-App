@@ -22,11 +22,11 @@ while True:
             file.close()
 
         case "edit":
+
             file = open("todos.txt", "r")
             todo_list = file.readlines()
             num = int(input("Number of the todo to edit: "))
             new_todo = input("Enter the new todo: ")
-            file = open("todos.txt", "w")
             todo_list[num - 1] = new_todo
             file.close()
 
@@ -40,7 +40,10 @@ while True:
         case "show":
             file = open("todos.txt", "r")
             todo_list = file.readlines()
+            file.close()
+
             for index, item in enumerate(todo_list):
+                item = item.strip("\n")
                 print(f"{index + 1}.{item}")
 
             file.close()
