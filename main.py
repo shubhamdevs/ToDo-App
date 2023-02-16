@@ -30,16 +30,18 @@ while True:
                 file.writelines(todo_list)
 
         case "complete":
-            file = open("todos.txt", "w")
-            todo_list = file.readlines()
+            with open("todos.txt", "r") as file:
+                todo_list = file.readlines()
+
             num = int(input("Enter the number of completed todo: "))
             todo_list.pop(num - 1)
-            file.close()
+
+            with open("todos.txt", "w") as file:
+                file.writelines(todo_list)
 
         case "show":
-            file = open("todos.txt", "r")
-            todo_list = file.readlines()
-            file.close()
+            with open("todos.txt", "r") as file:
+                todo_list = file.readlines()
 
             for index, item in enumerate(todo_list):
                 item = item.strip("\n")
