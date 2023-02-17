@@ -17,16 +17,22 @@ while True:
             file.writelines(todo_list)
 
     elif user_input.startswith("edit"):
-        with open("todos.txt", "r") as file:
-            todo_list = file.readlines()
+        try:
+            with open("todos.txt", "r") as file:
+                todo_list = file.readlines()
 
-        num = int(user_input[5:])
-        new_todo = input("Enter the new todo: ")
+            num = int(user_input[5:])
+            new_todo = input("Enter the new todo: ")
 
-        todo_list[num - 1] = new_todo + "\n"
+            todo_list[num - 1] = new_todo + "\n"
 
-        with open("todos.txt", "w") as file:
-            file.writelines(todo_list)
+            with open("todos.txt", "w") as file:
+                file.writelines(todo_list)
+
+        # Checking for a Value Error as takes integers.
+        except ValueError:
+            print("Your Command is not valid")
+            continue
 
     elif user_input.startswith("complete"):
         with open("todos.txt", "r") as file:
