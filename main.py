@@ -20,7 +20,7 @@ while True:
         with open("todos.txt", "r") as file:
             todo_list = file.readlines()
 
-        num = int(input("Number of the todo to edit: "))
+        num = int(user_input[5:])
         new_todo = input("Enter the new todo: ")
 
         todo_list[num - 1] = new_todo + "\n"
@@ -32,7 +32,7 @@ while True:
         with open("todos.txt", "r") as file:
             todo_list = file.readlines()
 
-        num = int(input("Enter the number of completed todo: "))
+        num = int(user_input[9:])
         index = num - 1
         todoToDelete = todo_list[index].strip("\n")
         todo_list.pop(index)
@@ -54,5 +54,8 @@ while True:
 
     elif "exit" in user_input:
         break
+
+    else:
+        print("Command is not valid")
 
 print("Thank you for using Todo App")
