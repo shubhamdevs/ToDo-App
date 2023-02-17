@@ -6,17 +6,17 @@ while True:
     user_input = user_input.strip()
 
     # matching user input with the assigned cases:
-    if "add" in user_input:
+    if user_input.startswith("add"):
         with open("todos.txt", "r") as file:
             todo_list = file.readlines()
 
         todo = user_input[4:]
-        todo_list.append(todo)
+        todo_list.append(todo + "\n")
 
         with open("todos.txt", "w") as file:
             file.writelines(todo_list)
 
-    elif "edit" in user_input:
+    elif user_input.startswith("edit"):
         with open("todos.txt", "r") as file:
             todo_list = file.readlines()
 
@@ -28,7 +28,7 @@ while True:
         with open("todos.txt", "w") as file:
             file.writelines(todo_list)
 
-    elif "complete" in user_input:
+    elif user_input.startswith("complete"):
         with open("todos.txt", "r") as file:
             todo_list = file.readlines()
 
@@ -42,7 +42,7 @@ while True:
 
         print(f"Task {todoToDelete} is removed from the list")
 
-    elif "show" in user_input:
+    elif user_input.startswith("show"):
         with open("todos.txt", "r") as file:
             todo_list = file.readlines()
 
@@ -52,7 +52,7 @@ while True:
 
         file.close()
 
-    elif "exit" in user_input:
+    elif user_input.startswith("exit"):
         break
 
     else:
