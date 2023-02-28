@@ -1,5 +1,13 @@
 print("Welcome to ToDo App")
 
+
+# Crating a get_todos() function to get previous tasks.
+def get_todos():
+    with open("todos.txt", "r") as file_local:
+        todo_list_local = file_local.readlines()
+    return todo_list_local
+
+
 # Taking User Input:
 while True:
     user_input = input("Type add, edit, complete, show or exit: ")
@@ -7,9 +15,7 @@ while True:
 
     # matching user input with the assigned cases:
     if user_input.startswith("add"):
-        with open("todos.txt", "r") as file:
-            todo_list = file.readlines()
-
+        todo_list = get_todos()
         todo = user_input[4:]
         todo_list.append(todo + "\n")
 
@@ -18,8 +24,7 @@ while True:
 
     elif user_input.startswith("edit"):
         try:
-            with open("todos.txt", "r") as file:
-                todo_list = file.readlines()
+            todo_list = get_todos()
 
             num = int(user_input[5:])
             new_todo = input("Enter the new todo: ")
@@ -36,8 +41,7 @@ while True:
 
     elif user_input.startswith("complete"):
         try:
-            with open("todos.txt", "r") as file:
-                todo_list = file.readlines()
+            todo_list = get_todos()
 
             num = int(user_input[9:])
             index = num - 1
@@ -55,8 +59,7 @@ while True:
             continue
 
     elif user_input.startswith("show"):
-        with open("todos.txt", "r") as file:
-            todo_list = file.readlines()
+        todo_list = get_todos()
 
         for index, item in enumerate(todo_list):
             item = item.strip("\n")
