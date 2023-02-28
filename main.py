@@ -65,8 +65,6 @@ while True:
             item = item.strip("\n")
             print(f"{index + 1}.{item}")
 
-        file.close()
-
     elif user_input.startswith("exit"):
         break
 

@@ -1,5 +1,3 @@
-text
-clean
-type
-write an email
-clean desk
+college assignment
+write a linkedIn post
+do the english exercises
