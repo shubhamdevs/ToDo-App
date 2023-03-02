@@ -1,6 +1,10 @@
-print("Welcome to ToDo App")
-
 import functions
+import time
+
+
+print("Welcome to ToDo App")
+Time = time.strftime("%b %d, %Y %H:%M:%S")
+print("It's", Time)
 
 # Taking User Input:
 while True:
