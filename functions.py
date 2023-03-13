@@ -12,3 +12,4 @@ def get_todos(filepath=FILEPATH):
 def write_todos(todo_arg, filepath=FILEPATH):
     with open(filepath, "w") as file_local:
         file_local.writelines(todo_arg)
+ 
